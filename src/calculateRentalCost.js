@@ -7,24 +7,20 @@ function calculateRentalCost(days) {
   const rentalCost = 40;
   const smallOffer = 20;
   const bigOffer = 50;
-  let totalAmount = 0;
+  const longTerm = 7;
+  const shortTerm = 3;
 
-  if (days < 3) {
-    totalAmount = days * rentalCost;
 
-    return totalAmount;
+  if (days < shortTerm) {
+    return days * rentalCost;
   }
 
-  if (days >= 3 && days < 7) {
-    totalAmount = days * rentalCost - smallOffer;
-
-    return totalAmount;
+  if (days >= shortTerm && days < longTerm) {
+    return days * rentalCost - smallOffer;
   }
 
-  if (days >= 7) {
-    totalAmount = days * rentalCost - bigOffer;
-
-    return totalAmount;
+  if (days >= longTerm) {
+    return days * rentalCost - bigOffer;
   }
 }
 
